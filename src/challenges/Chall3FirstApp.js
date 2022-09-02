@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-export const GifExpertApp = () => {
+export const GiftExpertApp = () => {
 
   const [categories, setCategories] = useState(['first category']);
   const [category, setCategory] = useState('');
@@ -16,23 +16,24 @@ export const GifExpertApp = () => {
     setCategory(evt.target.value)
   }
 
-  return (
+  return(
 
     <>
       <h1>GifExpertGabriel</h1>
       <input type="text" value={category}
-        onChange={(event) => onSetCategory(event)} />
+        onChange={(event) => onSetCategory(event)}/>
       <button onClick={() => onAddCategory()}> Add Category </button>
       <ol>
         {
           categories.map(
-            (category, key) => {
+            (category, key) =>
+            {
               return <li key={key}> {category}</li>
             }
           )
         }
       </ol>
     </>
-  )
+    )
 
 }

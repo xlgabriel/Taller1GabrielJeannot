@@ -4,9 +4,9 @@ import { GifExpertApp } from './App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-      <GifExpertApp/>
-    </React.StrictMode>
+  <React.StrictMode>
+    <GifExpertApp />
+  </React.StrictMode>
 )
 
 //El index no se vuelve a tocar
