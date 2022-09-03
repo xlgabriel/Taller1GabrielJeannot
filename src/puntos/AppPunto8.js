@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const App = () => {
+export const AppPunto8 = () => {
 
   const [salaries, setSalaries] = useState(['']);
   const [salary, setSalary] = useState('');
