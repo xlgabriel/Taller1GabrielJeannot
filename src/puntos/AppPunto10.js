@@ -1,50 +1,82 @@
-import { useState } from "react";
+
 
 export const AppPunto10 = () => {
-    const [row, setRow] = useState('');
-    const [col, setCol] = useState('');
 
 
-    const onSetRow = (evt) => {
-        setRow(evt.target.value.replace(/\D/g, ''))
+    const crearTablaInput = () => {
+        tablaInput()
+    }
+    const suma = () => {
+        calcularSuma()
     }
 
-    const onSetCol = (evt) => {
-        setCol(evt.target.value.replace(/\D/g, ''))
+    function tablaInput() {
+        const div = document.getElementById("tablaInput")
+        div.innerHTML = ""
+        var table = document.createElement("table")
+
+
+
+        const m = document.getElementById("columnasInput").value
+        const n = document.getElementById("filasInput").value
+        if (m <= 0 || n <= 0) {
+            var mensaje = document.createTextNode("Debe ser numero mayores o diferentes a 0")
+            div.appendChild(mensaje)
+        } else {
+            //filas
+            for (let i = 0; i < n; i++) {
+                var fila = document.createElement("tr")
+                for (let j = 0; j < m; j++) {
+                    var celda = document.createElement("td")
+                    var texto = document.createElement("input")
+                    celda.appendChild(texto)
+                    fila.appendChild(celda)
+
+                }
+                table.appendChild(fila)
+            }
+            div.appendChild(table)
+            table.setAttribute("border", "2")
+        }
     }
 
-    const tableCreate = (row, col) => {
-
-        let body = document.body;
-        let tbl = document.createElement('table');
-        tbl.style.width = '200px';
-        tbl.style.border = '1px solid black';
-
-        for (let i = 0; i < row; i++) {
-            let tr = tbl.insertRow();
-            for (let j = 0; j < col; j++) {
-                let td = tr.insertCell();
-                td.appendChild(document.createTextNode(`${i},${j}`));
-                td.style.border = '1px solid black';
+    function calcularSuma() {
+        let numeros = []
+        let sumaTotal = 0
+        var nTd = document.createElement("td")
+        const table = document.getElementById("tablaInput").children[0]
+        const filas = table.children
+        for (let tr of filas) {
+            var td = tr.children
+            for (let input of td) {
+                var n = input.children[0].value
+                numeros.push(n)
             }
         }
-        body.appendChild(tbl);
+        numeros.forEach((num) => {
+            sumaTotal += parseFloat(num)
+        })
+        console.log(sumaTotal)
 
+        var total = document.createTextNode(sumaTotal)
+        nTd.appendChild(total)
+        table.appendChild(nTd)
     }
 
-
     return (
-
         <>
-            <h1>Tabla a tu antojo</h1><span> ¡Digita las filas y columnas de la tabla a dibujar! </span><br /><br />
-            <span> Digita el valor de las filas </span><br />
-            <input type="text" value={row} onChange={(event) => onSetRow(event)} />
-            <br />
-            <span> Digita el valor de las columnas</span><br />
-            <input type="text" value={col} onChange={(event) => onSetCol(event)} />
-            <br /><br />
-            <button onClick={() => tableCreate(row, col)}> Generar tabla </button>
-            <br /><br />
+            <h2>Ejercicio 10:</h2>
+            <div>
+                <span>Ingrese el tamaño de su tabla </span>
+                <span>Filas:</span>
+                <input type="text" id='filasInput'></input>
+                <span>Columnas:</span>
+                <input type="text" id='columnasInput'></input>
+                <button onClick={crearTablaInput}>crear</button>
+                <button onClick={suma}>calcular</button>
+            </div>
         </>
+
     )
+
 }

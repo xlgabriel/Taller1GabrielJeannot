@@ -11,13 +11,16 @@ import { AppPunto7 } from './puntos/AppPunto7'
 import { AppPunto8 } from './puntos/AppPunto8'
 import { AppPunto9 } from './puntos/AppPunto9'
 import { AppPunto10 } from './puntos/AppPunto10'
+import { AppPunto11 } from './puntos/AppPunto11'
+import { AppPunto12 } from './puntos/AppPunto12'
+
 import './index.css'
 
 //Taller 1 de Gabriel Jeannot - 2185887
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AppPunto10 />
+    <AppPunto12 />
   </React.StrictMode>
 )
 

@@ -22,9 +22,6 @@ export const AppPunto1 = () => {
 	}
 
 
-
-
-
 	return (
 		<>
 			<h1>Convertidor de segundos en hora/minuto/segundo</h1>

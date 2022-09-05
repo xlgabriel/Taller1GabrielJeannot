@@ -10,7 +10,7 @@ export const AppPunto3 = () => {
         setNombre(event.target.value.replace(/[^a-zA-Z0-9@]+/, ''))
     }
 
-    const onInputChange = (event) => {
+    const onInputChange2 = (event) => {
         setHora(event.target.value.replace(/\D/g, ''))
     }
 
@@ -40,9 +40,10 @@ export const AppPunto3 = () => {
             <h3>Por favor, ingresa tu nombre</h3>
             <input type="text" value={nombre} onChange={(event) => onInputChange1(event)} />
 
-            <h1></h1>
+            <br />
             <h3>Por favor, ingresa la hora (formato 24h)</h3>
-            <input type="text" value={hora} onChange={(event) => onInputChange(event)} />
+            <input type="text" value={hora} onChange={(event) => onInputChange2(event)} />
+
             <button onClick={(event) => handleAdd(event)}>SALUDAR</button>
             <div>
                 <h2>{saludo}</h2>
