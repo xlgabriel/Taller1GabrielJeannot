@@ -11,10 +11,9 @@ export const AppPunto7 = () => {
 
   const onAddPosition = () => {
 
-    console.log(position)
+
     if (array[position] !== undefined) {
       document.querySelector('#result').textContent = array[array.length - 1];
-      console.log(array[array.length - 1])
     }
     else {
       alert("¡Error!\nDebe ser un número entre 0 y 9.");
