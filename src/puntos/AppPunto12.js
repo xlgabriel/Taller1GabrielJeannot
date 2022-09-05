@@ -1,11 +1,26 @@
 import { useState } from "react";
 
-export const AppPunto11 = () => {
+export const AppPunto12 = () => {
 
     const [Nombre, setNombre] = useState('')
     const [Nota, setNota] = useState('')
     const [Notas, setNotas] = useState([])
     const [Resultado, setResultado] = useState('')
+
+    var estudiantes = []
+
+    function addEstudiante() {
+        var estudiante = new Object();
+        estudiante.nombre = Nombre
+        estudiante.nota1 = Notas[0]
+        estudiante.nota2 = Notas[1]
+        estudiante.nota3 = Notas[2]
+        estudiante.notaFinal = (parseFloat(estudiante.nota1) + parseFloat(estudiante.nota2) + parseFloat(estudiante.nota3)) / 3
+
+        console.log(estudiante)
+
+        estudiantes.push(estudiante)
+    }
 
 
     const HandleReset = () => {
@@ -45,15 +60,13 @@ export const AppPunto11 = () => {
         }
         prom = suma / total
         if (prom >= 3.0) {
-            setResultado("¡" + Nombre + ", logras pasar la materia con un puntaje de " + prom + "!")
-        }
-        if (isNaN(prom)) {
-            alert("¡ERROR!\nRevisa que no hayas ingresado una letra por error.")
-            setResultado('')
-            HandleReset()
+            addEstudiante()
+
+            setResultado(estudiantes.Nombre + ", notas: " + estudiantes.Notas + ", APROBÓ con: " + estudiantes.notaFinal)
         }
         else {
-            setResultado(Nombre + ", no pasas la materia, tu puntaje fue de " + prom + "😔")
+            addEstudiante()
+            setResultado(estudiantes.Nombre + ", notas: " + estudiantes.Notas + ", REPROBÓ con: " + estudiantes.notaFinal)
         }
 
     }

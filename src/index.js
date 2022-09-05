@@ -20,7 +20,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AppPunto12 />
+    <AppPunto1 />
   </React.StrictMode>
 )
 
