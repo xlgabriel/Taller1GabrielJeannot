@@ -50,7 +50,9 @@ export const AppPunto12 = () => {
     const onSetResultado = () => {
 
         var total = Notas.length
-        var suma, prom, almacenar = 0
+        var suma = 0
+        var almacenar = 0
+        var prom = 0
 
         for (let i = 0; i < total; i++) {
 
@@ -63,6 +65,11 @@ export const AppPunto12 = () => {
             addEstudiante()
 
             setResultado(estudiantes.Nombre + ", notas: " + estudiantes.Notas + ", APROBÓ con: " + estudiantes.notaFinal)
+        }
+        if (isNaN(prom)) {
+            alert("¡ERROR!\nRevisa que no hayas ingresado una letra por error.")
+            setResultado('')
+            HandleReset()
         }
         else {
             addEstudiante()

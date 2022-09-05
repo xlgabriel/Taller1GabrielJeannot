@@ -35,7 +35,9 @@ export const AppPunto11 = () => {
     const onSetResultado = () => {
 
         var total = Notas.length
-        var suma, prom, almacenar = 0
+        var suma = 0
+        var almacenar = 0
+        var prom = 0
 
         for (let i = 0; i < total; i++) {
 
